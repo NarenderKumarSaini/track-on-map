@@ -37,7 +37,7 @@ const Map = () => {
     >
       <Circle
         center={currentLocation.coords}
-        radius={30}
+        radius={20}
         strokeColor="rgba(158, 158, 255, 1.0)"
         fillColor="rgba(158, 158, 255, 0.3)"
       />
