@@ -1,4 +1,7 @@
-import React, { useContext } from 'react';
+import React, {
+  useCallback,
+  useContext,
+} from 'react';
 
 import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
@@ -13,8 +16,17 @@ import { Context as LocationContext } from '../context/LocationContext';
 import useLocation from '../hooks/useLocation';
 
 const TrackCreateScreen = ({ isFocused }) => {
-  const { addLocation } = useContext(LocationContext);
-  const [err] = useLocation(isFocused, addLocation);
+  const {
+    state: { recording },
+    addLocation
+  } = useContext(LocationContext);
+  const callback = useCallback(
+    location => {
+      addLocation(location, recording);
+    },
+    [recording]
+  );
+  const [err] = useLocation(isFocused || recording, callback);
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
