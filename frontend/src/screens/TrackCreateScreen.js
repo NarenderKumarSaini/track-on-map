@@ -1,4 +1,3 @@
-//import '../_mockLocation';
 import React, {
   useCallback,
   useContext,
