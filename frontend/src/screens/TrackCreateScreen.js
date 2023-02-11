@@ -32,7 +32,7 @@ const TrackCreateScreen = ({ isFocused }) => {
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
-      <Text h2>Create a Track</Text>
+      <Text h3 style={styles.textTitle}>Create a Track</Text>
       <Map />
       {err ? <Text>Please enable location services</Text> : null}
       <TrackForm />
@@ -45,6 +45,11 @@ TrackCreateScreen.navigationOptions = {
   tabBarIcon: <FontAwesome name="plus" size={20} />,
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  textTitle:{
+    textAlign:'center'
+
+  }
+});
 
 export default withNavigationFocus(TrackCreateScreen);
