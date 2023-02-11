@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
 
-import {
-  StyleSheet,
-  Text,
-} from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
 
@@ -17,9 +14,12 @@ const AccountScreen = () => {
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text style={{ fontSize: 48 }}>AccountScreen</Text>
+      <Spacer></Spacer>
       <Spacer>
-        <Button title="Sign Out" onPress={signout} />
+        <Text style={styles.textTitle}>AccountScreen</Text>
+      </Spacer>
+      <Spacer>
+        <Button title='Sign Out' onPress={signout} />
       </Spacer>
     </SafeAreaView>
   );
@@ -27,9 +27,14 @@ const AccountScreen = () => {
 
 AccountScreen.navigationOptions = {
   title: 'Account',
-  tabBarIcon: <FontAwesome name="gear" size={20} />
+  tabBarIcon: <FontAwesome name='gear' size={20} />,
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  textTitle: {
+    textAlign: 'center',
+    fontSize: 40,
+  },
+});
 
 export default AccountScreen;
