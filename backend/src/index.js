@@ -1,5 +1,7 @@
 require("./models/User");
 require("./models/Track");
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -13,7 +15,7 @@ app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(trackRoutes);
 
-const mongoUri = 'mongodb+srv://track-on-map:9y9DbYeD7oglLif8@cluster0.pwqksnv.mongodb.net/test';
+const mongoUri = process.env.MONGO_URI;
 if (!mongoUri) {
   throw new Error(
     `MongoURI was not supplied.  Make sure you watch the video on setting up Mongo DB!`
@@ -35,6 +37,6 @@ app.get("/", requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 
-app.listen(3001, () => {
-  console.log("Listening on port 3001");
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 });
