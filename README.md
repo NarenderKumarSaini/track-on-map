@@ -9,6 +9,8 @@ The First step is to fork the repo and get it in your Github repositories and th
 
 
 ### Setup 
+#https://alxmrtnz.com/thoughts/2019/03/12/environment-variables-and-workflow-in-expo.html
+environment variable setup for expo app
 
 1. First clone the branch from the repo
 
